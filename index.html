@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ollama Voice Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🎙️ Jarvis Voice Assistant</h1>
+  
+  <div class="controls">
+    <button onclick="startListening()" id="listenBtn">🎤 Start Listening</button>
+    <button onclick="stopSpeaking()">⏹️ Stop Speaking</button>
+    <button onclick="testTTS()">🔊 Test TTS</button>
+    <button onclick="checkHealth()">🔍 Check Status</button>
+  </div>
+  
+  <div class="controls">
+    <select id="voiceSelect">
+      <option value="">Select Voice</option>
+    </select>
+    <label>
+      Speed: <input type="range" id="speedRange" min="0.5" max="2" step="0.1" value="1">
+      <span id="speedValue">1.0</span>
+    </label>
+  </div>
+  
+  <div class="status" id="status">Ready to listen...</div>
+  
+  <div id="response">
+    <p><strong>You:</strong> <span id="userText">---</span></p>
+    <p><strong>Assistant:</strong> <span id="botResponse">---</span></p>
+  </div>
+  
+  <div class="debug-info" id="debugInfo">
+    <strong>Debug Info:</strong><br>
+    Speech Synthesis Supported: <span id="ttsSupport">Checking...</span><br>
+    Available Voices: <span id="voiceCount">Loading...</span><br>
+    Flask Backend: <span id="flaskStatus">Checking...</span><br>
+    Ollama Status: <span id="ollamaStatus">Checking...</span><br>
+    Current Status: <span id="currentStatus">Ready</span><br>
+    Last Error: <span id="lastError">None</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
